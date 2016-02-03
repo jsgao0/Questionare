@@ -1,5 +1,5 @@
 {
-  "name": "questionaire",
+  "name": "questions",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jsgao0/Questionare.git"
+    "url": "https://github.com/jsgao0/Questions.git"
   },
   "author": "Anson",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jsgao0/Questionare/issues"
+    "url": "https://github.com/jsgao0/Questions/issues"
   },
-  "homepage": "https://github.com/jsgao0/Questionare"
+  "homepage": "https://github.com/jsgao0/Questions"
 }
