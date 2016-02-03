@@ -108,7 +108,14 @@
           sequence2.next() --> 4;
         **/
 
-
+        this.Sequence = function() {
+            var seq = this;
+            this.presentSeq = 0;
+            this.next = function() {
+                seq.presentSeq += 1;
+                return seq.presentSeq;
+            };
+        };
 
 
         /**
@@ -119,7 +126,7 @@
         **/
 
         this.getUnUsedKeys = function(allKeys, usedKeys) {
-        	//TODO
+        	
         };
     }
 
