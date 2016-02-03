@@ -30,6 +30,11 @@
           DigitalUser < VitrualUser < FaxUser < AO < Dept.
         **/
         this.sortExtensionsByExtType = function(extensions) {
+            if(!Array.isArray(extensions)) throw 'The input is not an array.';
+            var extTypeList = ['DigitalUser', 'VitrualUser', 'FaxUser', 'AO', 'Dept'];
+            return extensions.sort(function(left, right) {
+                return extTypeList.indexOf(left.extType) - extTypeList.indexOf(right.extType);
+            });
         };
 
 
