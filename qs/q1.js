@@ -83,7 +83,15 @@
         **/
 
         this.averageByQuater = function(saleItems) {
-
+            if(!Array.isArray(saleItems)) throw 'The input is not an array.';
+            var quaterInfo = this.sumByQuater(saleItems);
+            return quaterInfo.map(function(e) {
+                var newE = {};
+                newE.quater = e.quater;
+                newE.transactionNums = e.transactionNums;
+                newE.averagePrices = e.totalPrices / e.transactionNums;
+                return newE;
+            });
         };
 
 

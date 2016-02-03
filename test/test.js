@@ -13,14 +13,14 @@
                 {firstName: 'John', lastName: 'Ai', ext: '12100', extType: 'Dept'}
             ],
             saleItems: [
-                {month: 1, date: 2, transationId: "xxx", salePrice: 1},
-                {month: 1, date: 3, transationId: "xxx", salePrice: 1},
-                {month: 1, date: 5, transationId: "xxx", salePrice: 1},
-                {month: 1, date: 12, transationId: "xxx", salePrice: 1},
-                {month: 1, date: 25, transationId: "xxx", salePrice: 1},
-                {month: 2, date: 2, transationId: "xxx", salePrice: 1},
-                {month: 2, date: 2, transationId: "xxx", salePrice: 1},
-                {month: 3, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 1, date: 2, transationId: "xxx", salePrice: 2},
+                {month: 1, date: 3, transationId: "xxx", salePrice: 2},
+                {month: 1, date: 5, transationId: "xxx", salePrice: 2},
+                {month: 1, date: 12, transationId: "xxx", salePrice: 2},
+                {month: 1, date: 25, transationId: "xxx", salePrice: 2},
+                {month: 2, date: 2, transationId: "xxx", salePrice: 2},
+                {month: 2, date: 2, transationId: "xxx", salePrice: 2},
+                {month: 3, date: 2, transationId: "xxx", salePrice: 2},
                 {month: 4, date: 2, transationId: "xxx", salePrice: 1},
                 {month: 5, date: 2, transationId: "xxx", salePrice: 1},
                 {month: 5, date: 2, transationId: "xxx", salePrice: 1},
@@ -66,12 +66,21 @@
         });
         it('sumByQuater', function() {
             var expectedData = [
-                {quater: 1,totalPrices: 8,transactionNums: 8},
-                {quater: 2,totalPrices: 6,transactionNums: 6},
-                {quater: 3,totalPrices: 5,transactionNums: 5},
-                {quater: 4,totalPrices: 7,transactionNums: 7}
+                {quater: 1, totalPrices: 16, transactionNums: 8},
+                {quater: 2, totalPrices: 6, transactionNums: 6},
+                {quater: 3, totalPrices: 5, transactionNums: 5},
+                {quater: 4, totalPrices: 7, transactionNums: 7}
             ];
             assert.deepEqual(expectedData, q1.sumByQuater(originalData.saleItems));
+        });
+        it('averageByQuater', function() {
+            var expectedData = [
+                {quater: 1, averagePrices: 2, transactionNums: 8},
+                {quater: 2, averagePrices: 1, transactionNums: 6},
+                {quater: 3, averagePrices: 1, transactionNums: 5},
+                {quater: 4, averagePrices: 1, transactionNums: 7}
+            ];
+            assert.deepEqual(expectedData, q1.averageByQuater(originalData.saleItems));
         });
     });
 })();
