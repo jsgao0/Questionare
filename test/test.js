@@ -86,6 +86,12 @@
             ];
             assert.deepEqual(expectedData, q1.averageByQuater(originalData.saleItems));
         });
+        it('Sequence', function() {
+            var Sequence1 = new q1.Sequence();
+            assert.equal(1, Sequence1.next());
+            assert.equal(2, Sequence1.next());
+            assert.equal(3, Sequence1.next());
+        });
         it('getUnUsedKeys', function() {
             var expectedData = [0,1,5,6,7,8,9];
             assert.deepEqual(expectedData, q1.getUnUsedKeys(originalData.keys.allKeys, originalData.keys.usedKeys));
