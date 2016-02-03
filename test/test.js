@@ -4,13 +4,46 @@
     var question = require('../index');
     var q1 = new question().qlist[0];
     describe('q1 tests', function() {
-        var originalData = [
-            {firstName: 'Mark', lastName: 'Lee', ext: '22122', extType: 'AO'},
-            {firstName: 'Anson', lastName: 'Gao', ext: '41232', extType: 'DigitalUser'},
-            {firstName: 'Anson', lastName: 'Chen', ext: '51232', extType: 'FaxUser'},
-            {firstName: 'John', lastName: 'Ai', ext: '32100', extType: 'VitrualUser'},
-            {firstName: 'John', lastName: 'Ai', ext: '12100', extType: 'Dept'}
-        ];
+        var originalData = {
+            extensions: [
+                {firstName: 'Mark', lastName: 'Lee', ext: '22122', extType: 'AO'},
+                {firstName: 'Anson', lastName: 'Gao', ext: '41232', extType: 'DigitalUser'},
+                {firstName: 'Anson', lastName: 'Chen', ext: '51232', extType: 'FaxUser'},
+                {firstName: 'John', lastName: 'Ai', ext: '32100', extType: 'VitrualUser'},
+                {firstName: 'John', lastName: 'Ai', ext: '12100', extType: 'Dept'}
+            ],
+            saleItems: [
+                {month: 1, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 1, date: 3, transationId: "xxx", salePrice: 1},
+                {month: 1, date: 5, transationId: "xxx", salePrice: 1},
+                {month: 1, date: 12, transationId: "xxx", salePrice: 1},
+                {month: 1, date: 25, transationId: "xxx", salePrice: 1},
+                {month: 2, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 2, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 3, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 4, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 5, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 5, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 5, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 6, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 6, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 7, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 7, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 7, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 8, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 9, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 10, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 11, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 11, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 11, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 11, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 12, date: 2, transationId: "xxx", salePrice: 1},
+                {month: 12, date: 2, transationId: "xxx", salePrice: 1}
+            ]
+        };
+
+
+
         it('sortExtensionsByName', function() {
             var expectedData = [
                 {firstName: 'Anson', lastName: 'Chen', ext: '51232', extType: 'FaxUser'},
@@ -19,7 +52,7 @@
                 {firstName: 'John', lastName: 'Ai', ext: '32100', extType: 'VitrualUser'},
                 {firstName: 'Mark', lastName: 'Lee', ext: '22122', extType: 'AO'}
             ];
-            assert.deepEqual(expectedData, q1.sortExtensionsByName(originalData));
+            assert.deepEqual(expectedData, q1.sortExtensionsByName(originalData.extensions));
         });
         it('sortExtensionsByExtType', function() {
             var expectedData = [
@@ -29,7 +62,16 @@
                 {firstName: 'Mark', lastName: 'Lee', ext: '22122', extType: 'AO'},
                 {firstName: 'John', lastName: 'Ai', ext: '12100', extType: 'Dept'}
             ];
-            assert.deepEqual(expectedData, q1.sortExtensionsByExtType(originalData));
+            assert.deepEqual(expectedData, q1.sortExtensionsByExtType(originalData.extensions));
+        });
+        it('sumByQuater', function() {
+            var expectedData = [
+                {quater: 1,totalPrices: 8,transactionNums: 8},
+                {quater: 2,totalPrices: 6,transactionNums: 6},
+                {quater: 3,totalPrices: 5,transactionNums: 5},
+                {quater: 4,totalPrices: 7,transactionNums: 7}
+            ];
+            assert.deepEqual(expectedData, q1.sumByQuater(originalData.saleItems));
         });
     });
 })();

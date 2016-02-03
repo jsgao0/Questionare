@@ -57,7 +57,21 @@
         **/
 
         this.sumByQuater = function(saleItems) {
-
+            if(!Array.isArray(saleItems)) throw 'The input is not an array.';
+            var saleListGroupByQuater = [[], [], [], []];
+            var quaterInfo = [];
+            saleItems.forEach(function(e) {
+                saleListGroupByQuater[Math.floor((e.month - 1) / 3)].push(e);
+            });
+            saleListGroupByQuater.forEach(function(e, i) {
+              quaterInfo[i] = {};
+              quaterInfo[i].quater = i + 1;
+              quaterInfo[i].totalPrices = e.reduce(function(p, c) {
+                return p + c.salePrice;
+              }, 0);
+              quaterInfo[i].transactionNums = e.length;
+            });
+            return quaterInfo;
         };
 
         /**
