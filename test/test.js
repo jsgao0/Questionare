@@ -39,7 +39,11 @@
                 {month: 11, date: 2, transationId: "xxx", salePrice: 1},
                 {month: 12, date: 2, transationId: "xxx", salePrice: 1},
                 {month: 12, date: 2, transationId: "xxx", salePrice: 1}
-            ]
+            ],
+            keys: {
+                allKeys: [0,1,2,3,4,5,6,7,8,9],
+                usedKeys: [2,3,4]
+            }
         };
 
 
@@ -81,6 +85,10 @@
                 {quater: 4, averagePrices: 1, transactionNums: 7}
             ];
             assert.deepEqual(expectedData, q1.averageByQuater(originalData.saleItems));
+        });
+        it('getUnUsedKeys', function() {
+            var expectedData = [0,1,5,6,7,8,9];
+            assert.deepEqual(expectedData, q1.getUnUsedKeys(originalData.keys.allKeys, originalData.keys.usedKeys));
         });
     });
 })();

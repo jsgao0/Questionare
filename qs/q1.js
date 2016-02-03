@@ -126,7 +126,11 @@
         **/
 
         this.getUnUsedKeys = function(allKeys, usedKeys) {
-        	
+            var unusedKeys = [];
+        	allKeys.forEach(function(e) {
+                if(usedKeys.indexOf(e) < 0) unusedKeys.push(e);
+            });
+            return unusedKeys;
         };
     }
 
